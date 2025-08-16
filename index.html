@@ -52,7 +52,7 @@
     position: absolute;
     text-align: center;
     opacity: 0;
-    transform: scale(0.7) translateY(200px);
+    transform: scale(0.7) translateY(150px);
     pointer-events: none;
   }
 
@@ -108,17 +108,13 @@ gsap.timeline({
 // Word groups moving outward
 .to(".word-group.left", { x: "-30vw", ease: "power2.out" }, 0)
 .to(".word-group.right", { x: "30vw", ease: "power2.out" }, 0)
-// Heading fades in and slides up
+// Heading smooth scale + fade in
 .fromTo(".heading-container", 
-    { opacity: 0, y: 200, scale: 0.7 }, 
-    { 
-      opacity: 1, 
-      y: 0, 
-      scale: 0.9, // intermediate scale while sliding
-      ease: "power2.out" 
-    }, 0)
-// Heading final pop to 1.4 once in position
-.to(".heading-container", { scale: 1.4, ease: "power2.out" }, 0.3);
+  { opacity: 0, y: 200, scale: 0.7 }, 
+  { opacity: 1, y: 0, scale: 0.9, ease: "power2.out" }, 0
+)
+.to(".heading-container", { scale: 1.2, ease: "power2.out" }, 0.5)
+.to(".heading-container", { scale: 1.4, ease: "power2.out" }, 1);
 </script>
 
 </body>
